@@ -8,7 +8,7 @@ CORS(app)
 @app.route("/", methods=['GET'])
 def hello_hng():
     email = "deedeesmith4@gmail.com"
-    current_datetime = datetime.utcnow().isoformat()
+    current_datetime = datetime.now().isoformat()
     github_url = "https://github.com/mariams58/Hng12_stage0.git"
     return jsonify({
         'email': email,
