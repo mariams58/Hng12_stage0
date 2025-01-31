@@ -12,9 +12,11 @@ CORS(app)
 
 @app.route("/", methods=['GET'])
 def hello_hng():
+    utc_dt = datetime.now(timezone.utc).replace(tzinfo=None).isoformat(timespec="seconds") + "Z"
+
     return jsonify({
         "email": os.getenv("EMAIL", "default-email@example.com"),
-        "current_datetime": datetime.now(timezone.utc).replace(tzinfo=None).isoformat(timespec="seconds") + "Z",
+        "current_datetime": utc_dt,
         "github_url": os.getenv("GITHUB_URL", "https://github.com/default-user/default-repo")
     }), 200
 
